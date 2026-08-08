@@ -2,34 +2,34 @@
 
 Aplicação web responsiva desenvolvida para praticar **JavaScript, consumo de APIs e manipulação dinâmica de dados**.
 
-A aplicação utiliza a **PokeAPI** para obter informações dos Pokémon e gerar dinamicamente os cards apresentados na interface.
+O projeto utiliza a **PokeAPI** para obter informações dos Pokémon e gerar dinamicamente os cards exibidos na interface.
 
 ## ✨ Funcionalidades
 
 * 📱 Interface responsiva
 * 🔌 Integração com a **PokeAPI**
-* 🔎 Consulta de informações dos Pokémon através de API
-* 🃏 Criação dinâmica dos cards
-* 🖼️ Exibição da imagem de cada Pokémon
-* 🏷️ Exibição do nome, número e tipos
-* ⬇️ Carregamento incremental de Pokémon
-* ➕ Botão **"Load More"** para carregar novos registros
+* 🃏 Criação dinâmica dos cards de Pokémon
+* 🖼️ Exibição de imagens dos Pokémon
+* 🏷️ Exibição de número, nome e tipos
+* ➕ Carregamento incremental de novos Pokémon
 * ⚡ Processamento de múltiplas requisições utilizando `Promise.all()`
 
-## 🛠️ Tecnologias utilizadas
+## 🛠️ Tecnologias
 
 * HTML5
 * CSS3
 * JavaScript
 * PokeAPI
 
-## 🔌 Consumo da API
+## 📸 Preview
 
-A aplicação utiliza a **PokeAPI** para obter os dados dos Pokémon.
+![Preview da Pokédex](./assets/images/preview.png)
 
-O JavaScript realiza as requisições e transforma os dados retornados pela API em objetos utilizados para construir os cards exibidos na página.
+## 🔌 Integração com a PokeAPI
 
-O fluxo principal funciona da seguinte maneira:
+A aplicação realiza requisições à **PokeAPI** para obter os dados dos Pokémon.
+
+Os dados recebidos são processados pelo JavaScript e utilizados para gerar dinamicamente os elementos da interface.
 
 ```text
 PokeAPI
@@ -40,35 +40,41 @@ JavaScript
    ↓
 Processamento dos dados
    ↓
-Criação dos cards
+Cards dos Pokémon
    ↓
 Interface
 ```
 
-## 📊 Carregamento incremental
+Entre as informações utilizadas estão:
 
-Para evitar o carregamento de uma grande quantidade de Pokémon de uma só vez, a aplicação utiliza um sistema de carregamento incremental.
+* Número do Pokémon
+* Nome
+* Tipos
+* Imagem
 
-Inicialmente são carregados **10 Pokémon**. Ao clicar em **"Load More"**, novos registros são solicitados à API.
+## ➕ Carregamento incremental
+
+A aplicação utiliza um sistema de carregamento incremental para evitar que todos os registros sejam carregados de uma só vez.
+
+Ao clicar no botão **"Load More"**, uma nova quantidade de Pokémon é solicitada à API e adicionada à lista existente.
+
+O carregamento utiliza os parâmetros `offset` e `limit` para controlar os registros retornados pela API.
 
 ```text
-Inicial
-10 Pokémon
-   ↓
-Load More
-   ↓
-+10 Pokémon
-   ↓
-Load More
-   ↓
-+10 Pokémon
+Carregamento inicial
+        ↓
+Lista de Pokémon
+        ↓
+"Load More"
+        ↓
+Nova requisição
+        ↓
+Novos Pokémon adicionados
 ```
-
-A aplicação utiliza os parâmetros `offset` e `limit` para controlar quais registros devem ser carregados.
 
 ## ⚙️ Organização do código
 
-O projeto possui uma separação entre as principais responsabilidades da aplicação:
+O JavaScript foi separado em arquivos com responsabilidades diferentes:
 
 ```text
 assets/
@@ -80,15 +86,15 @@ assets/
 
 ### `main.js`
 
-Responsável pela interação com a página e pela atualização da interface.
+Responsável pelo funcionamento da interface, interação com o usuário e atualização dos elementos da página.
 
 ### `poke-api.js`
 
-Responsável pela comunicação com a PokeAPI e obtenção dos dados.
+Responsável pela comunicação com a PokeAPI e pelas requisições dos dados.
 
 ### `pokemon-model.js`
 
-Responsável pela estrutura dos objetos utilizados para representar os Pokémon na aplicação.
+Responsável pela estrutura dos objetos utilizados para representar os Pokémon.
 
 ## 🎯 Objetivos do projeto
 
@@ -98,21 +104,22 @@ O projeto foi desenvolvido para praticar:
 * Requisições HTTP utilizando `fetch()`
 * Programação assíncrona com JavaScript
 * Utilização de `Promise.all()`
-* Manipulação de dados retornados por APIs
+* Manipulação e transformação de dados
 * Criação dinâmica de elementos HTML
 * Manipulação do DOM
-* Organização do código JavaScript
+* Organização de código JavaScript
 * Desenvolvimento de interfaces responsivas
 
 ## 📚 Aprendizados
 
-O desenvolvimento da Pokédex proporcionou prática principalmente com **integração de APIs e manipulação de dados externos**.
+Durante o desenvolvimento, foram praticados conceitos de **integração com APIs externas, programação assíncrona e manipulação dinâmica do DOM**.
 
-Também foi possível trabalhar com programação assíncrona, criação dinâmica de componentes da interface e controle de carregamento dos dados para proporcionar uma experiência mais organizada ao usuário.
+O projeto também proporcionou experiência na transformação de dados recebidos de uma API em elementos visuais e na implementação de um sistema de carregamento incremental para melhorar a experiência do usuário.
 
 ## 👨‍💻 Autor
 
 **João Victor Farias Zock**
 
-* GitHub: [@joaozock](https://github.com/joaozock)
-* LinkedIn: [linkedin.com/in/joaozock](https://linkedin.com/in/joaozock)
+[![GitHub](https://img.shields.io/badge/GitHub-joaozock-181717?style=flat\&logo=github)](https://github.com/joaozock)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-João%20Victor%20Farias%20Zock-0A66C2?style=flat\&logo=linkedin)](https://www.linkedin.com/in/joaozock/)
